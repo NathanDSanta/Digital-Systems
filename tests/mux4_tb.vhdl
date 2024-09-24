@@ -12,8 +12,8 @@ begin
     B => TB,
     C => TC,
     D => TD,
-    SEL => SEL,
-    F => F
+    SEL => TSEL,
+    F => TF
     );
   process
   begin
