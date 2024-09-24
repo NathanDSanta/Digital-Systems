@@ -9,7 +9,7 @@ entity MUX4 is
 end MUX4;
 
 architecture BEHAVIOUR of MUX4 is
-  signal SEL1, SEL1B, SEL0, SEL0B;
+  signal SEL1, SEL1B, SEL0, SEL0B : STD_LOGIC;
 begin
   SEL1 <= SEL(1);
   SEL1B <= not SEL(1);

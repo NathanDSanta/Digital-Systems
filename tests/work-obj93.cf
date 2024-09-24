@@ -1,0 +1,4 @@
+v 4
+file . ".\mux4.vhdl" "414c83cce0b47993a6cf31b68fb4f42c77a7d0f6" "20240924072502.444":
+  entity mux4 at 1( 0) + 0 on 13;
+  architecture behaviour of mux4 at 11( 189) + 0 on 14;
