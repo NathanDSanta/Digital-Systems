@@ -1,7 +1,0 @@
-v 4
-file . ".\mux4_tb.vhdl" "9f855493e048ad06e859b5b50920d4a887f20df9" "20240924101637.633":
-  entity mux4_tb at 1( 0) + 0 on 13;
-  architecture bench of mux4_tb at 6( 72) + 0 on 14;
-file . ".\mux4.vhdl" "414c83cce0b47993a6cf31b68fb4f42c77a7d0f6" "20240924101433.626":
-  entity mux4 at 1( 0) + 0 on 11;
-  architecture behaviour of mux4 at 11( 189) + 0 on 12;

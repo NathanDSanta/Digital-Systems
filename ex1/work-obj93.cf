@@ -1,0 +1,7 @@
+v 4
+file . "serialor_tb1.vhdl" "da08a7714e35a30cea773c0880e35a9da20697e2" "20241008071454.157":
+  entity serialor_tb1 at 6( 104) + 0 on 13;
+  architecture tb1 of serialor_tb1 at 12( 183) + 0 on 14;
+file . "serialor.vhdl" "319c1f5dc9ae9a043818dc2c51600b25b0ff99fb" "20241008071448.998":
+  entity serialor at 1( 0) + 0 on 11;
+  architecture behaviour of serialor at 11( 150) + 0 on 12;
