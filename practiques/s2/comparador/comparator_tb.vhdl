@@ -8,7 +8,7 @@ ARCHITECTURE test_bench OF comparator_tb IS
   SIGNAL a1, a2, a3, a4, a5, b1, b2, b3, b4, b5, s1, s2, s3 : STD_LOGIC;
 BEGIN
 
-  comparador : ENTITY work.comparator(behaviour) PORT MAP(
+  comparator : ENTITY work.comparator(behaviour) PORT MAP(
     a1 => a1,
     a2 => a2,
     a3 => a3,
