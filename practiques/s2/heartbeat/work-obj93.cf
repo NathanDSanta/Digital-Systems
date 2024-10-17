@@ -1,0 +1,4 @@
+v 4
+file . "heartbeat.vhdl" "d98c33501085c217e0cb39cfe64c2d28f1a4c755" "20241017081732.908":
+  entity heartbeat at 1( 0) + 0 on 13;
+  architecture behaviour of heartbeat at 8( 110) + 0 on 14;

@@ -1,23 +1,20 @@
-library ieee;
-use ieee.std_logic_1164.all;
-entity MUX4 is
-  port (
-    SEL : in STD_LOGIC_VECTOR(1 downto 0);
-    A, B, C, D : in STD_LOGIC;
-    F : out STD_LOGIC
-  );
-end MUX4;
-
-architecture BEHAVIOUR of MUX4 is
-  signal SEL1, SEL1B, SEL0, SEL0B : STD_LOGIC;
-begin
-  SEL1 <= SEL(1);
-  SEL1B <= not SEL(1);
-  SEL0 <= SEL(0);
-  SEL0B <= not SEL(0);
-
-  F <= (A and SEL1B and SEL0B) or
-    (B and SEL1B and SEL0) or
-    (C and SEL1 and SEL0B) or
-    (D and SEL1 and SEL0);
-end;
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+ENTITY MUX4 IS
+  PORT (
+    SEL        : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+    A, B, C, D : IN STD_LOGIC;
+    F          : OUT STD_LOGIC);
+END MUX;
+ARCHITECTURE BEHAVIOUR OF MUX4 IS
+  SIGNAL SEL1, SEL1B, SEL0, SEL0B;
+BEGIN
+  SEL1  <= SEL(1);
+  SEL1B <= NOT SEL(1);
+  SEL0  <= SEL(0);
+  SEL0B <= NOT SEL(0);
+  F     <= (A AND SEL1B AND SEL0B) OR
+  (B AND SEL1B AND SEL0) OR
+  (C AND SEL1 AND SEL0B) OR
+  (D AND SEL1 AND SEL0);
+END;
