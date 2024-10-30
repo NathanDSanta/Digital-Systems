@@ -1,7 +1,7 @@
 v 4
-file . "comparator_tb.vhdl" "794dc17a2ac510a405c42903e63bd1499c38b872" "20241017094218.375":
-  entity comparator_tb at 1( 0) + 0 on 19;
-  architecture test_bench of comparator_tb at 7( 88) + 0 on 20;
-file . "comparator.vhdl" "0d39e3f9c4bdb1ca9342dee5d4b789ce6f8a1a92" "20241017094214.394":
-  entity comparator at 1( 0) + 0 on 17;
-  architecture behaviour of comparator at 12( 213) + 0 on 18;
+file . "comparator_tb.vhdl" "f9588d6bde6c60a4ae861945d96397cd1508a15b" "20241030154703.821":
+  entity comparator_tb at 1( 0) + 0 on 35;
+  architecture test_bench of comparator_tb at 7( 88) + 0 on 36;
+file . "comparator.vhdl" "0d39e3f9c4bdb1ca9342dee5d4b789ce6f8a1a92" "20241030154659.727":
+  entity comparator at 1( 0) + 0 on 33;
+  architecture behaviour of comparator at 12( 213) + 0 on 34;

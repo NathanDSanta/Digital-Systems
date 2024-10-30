@@ -26,20 +26,27 @@ BEGIN
 
   PROCESS
   BEGIN
-    a1 <= '0';
+    -- A = 00000
+    a1 <= '0'; 
     a2 <= '0';
     a3 <= '0';
     a4 <= '0';
     a5 <= '0';
-    b1 <= '0';
+    -- B = 00000
+    b1 <= '0'; 
     b2 <= '0';
     b3 <= '0';
     b4 <= '0';
     b5 <= '0';
+    assert s2 /= '1' report "error quan A = B" severity warning; --Mostra un avis a la consola si el primer resultat no es l'esperat
     WAIT FOR 10 ns;
+    -- A = 00001
     a5 <= '1';
+    assert s1 /= '1' report "error quan A > B" severity warning;
     WAIT FOR 10 ns;
+    -- B = 00010
     b4 <= '1';
+    assert s3 /= '1' report "error quan A < B" severity warning;
     WAIT FOR 10 ns;
 
     WAIT;
