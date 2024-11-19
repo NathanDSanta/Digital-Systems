@@ -6,24 +6,44 @@ entity alu is
  Port ( inp_a : in STD_LOGIC_VECTOR(4 downto 0);
  inp_b : in STD_LOGIC_VECTOR (4 downto 0);
  sel : in STD_LOGIC_VECTOR (3 downto 0);
+ display1 : out STD_LOGIC_VECTOR(7 downto 0);
+ display2 : out STD_LOGIC_VECTOR(7 downto 0);
+ display3 : out STD_LOGIC_VECTOR(7 downto 0);
  out_alu : out STD_LOGIC_VECTOR (4 downto 0));
 end alu;
  
-architecture Behavioral of alu is
-  signal temp : STD_LOGIC_VECTOR (2 downto 0);
+architecture behaviour of alu is
+  signal A,B,resultat : STD_LOGIC_VECTOR (4 downto 0);
 begin
-process(inp_a, inp_b, sel)
-begin
-case sel is
-when "0001" =>
-temp <=  
-when "0010" =>
-when "0100" =>
-when "1000" =>
-when others =>
-end case;
-  
-end process;
- 
-end Behavioral;
- 
+  process(inp_a,inp_b, sel)
+  begin
+    A <= inp_a;
+    B <= inp_b;
+    case sel is
+    when "0001" => -- Comparacio
+      if(A < B) then
+        display1 <= "00000000";
+        display2 <= STD_LOGIC_VECTOR(to_unsigned(80,8));
+        display3 <= STD_LOGIC_VECTOR(to_unsigned(111,8));
+      elsif (A = B) then
+        display1 <= "00000000";
+        display2 <= STD_LOGIC_VECTOR(to_unsigned(121,8));
+        display3 <= STD_LOGIC_VECTOR(to_unsigned(103,8));
+      else
+        display1 <= "00000000";
+        display2 <= STD_LOGIC_VECTOR(to_unsigned(56,8));
+        display3 <= STD_LOGIC_VECTOR(to_unsigned(111,8));
+      end if;
+    when "0010" => -- Suma
+      resultat <= STD_LOGIC_VECTOR(unsigned(A) + unsigned(B));
+    when "0100" => -- Resta
+      resultat <= STD_LOGIC_VECTOR(unsigned(A) - unsigned(B));
+    when "1000" => -- Shift
+      resultat <= STD_LOGIC_VECTOR(shift_left(unsigned(inp_a), to_integer(unsigned(inp_b))));
+    when others =>
+      display1 <= STD_LOGIC_VECTOR(to_unsigned(121,8));
+      display2 <= STD_LOGIC_VECTOR(to_unsigned(80,8));
+      display3 <= STD_LOGIC_VECTOR(to_unsigned(80,8));
+    end case;
+  end process ;
+end behaviour;
