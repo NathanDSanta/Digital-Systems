@@ -13,7 +13,7 @@ entity alu is
 end alu;
  
 architecture behaviour of alu is
-  signal A,B,resultat : STD_LOGIC_VECTOR (4 downto 0);
+  signal A,B: STD_LOGIC_VECTOR (4 downto 0);
 begin
   process(inp_a,inp_b, sel)
   begin
@@ -21,6 +21,7 @@ begin
     B <= inp_b;
     case sel is
     when "0001" => -- Comparacio
+      out_alu <= "00000";
       if(A < B) then
         display1 <= "00000000";
         display2 <= STD_LOGIC_VECTOR(to_unsigned(80,8));
@@ -35,11 +36,11 @@ begin
         display3 <= STD_LOGIC_VECTOR(to_unsigned(111,8));
       end if;
     when "0010" => -- Suma
-      resultat <= STD_LOGIC_VECTOR(unsigned(A) + unsigned(B));
+      out_alu <= STD_LOGIC_VECTOR(unsigned(A) + unsigned(B));
     when "0100" => -- Resta
-      resultat <= STD_LOGIC_VECTOR(unsigned(A) - unsigned(B));
+      out_alu <= STD_LOGIC_VECTOR(unsigned(A) - unsigned(B));
     when "1000" => -- Shift
-      resultat <= STD_LOGIC_VECTOR(shift_left(unsigned(inp_a), to_integer(unsigned(inp_b))));
+      out_alu <= STD_LOGIC_VECTOR(shift_left(unsigned(inp_a), to_integer(unsigned(inp_b))));
     when others =>
       display1 <= STD_LOGIC_VECTOR(to_unsigned(121,8));
       display2 <= STD_LOGIC_VECTOR(to_unsigned(80,8));
