@@ -1,7 +1,0 @@
-v 4
-file . "counter.vhdl" "357ff9bd55742c5597668a5d2418c6478f673720" "20241112081223.757":
-  entity counter at 3( 40) + 0 on 17;
-  architecture rtl of counter at 13( 297) + 0 on 18;
-file . "counter_tb.vhdl" "d5b7b3b0fce17deb87e8e8f181ab14ddcf7bdadf" "20241112081226.667":
-  entity counter_tb at 3( 38) + 0 on 19;
-  architecture bench of counter_tb at 6( 68) + 0 on 20;

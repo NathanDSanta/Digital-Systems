@@ -1,7 +1,0 @@
-v 4
-file . "minmax_tb.vhdl" "16e03974142d470fdf7a421f5d0ee10b13b48f22" "20241022072030.688":
-  entity minmax_tb at 3( 69) + 0 on 23;
-  architecture tb1 of minmax_tb at 9( 145) + 0 on 24;
-file . "minmax.vhdl" "f28c9004639dfdb2c3cbb5e02cc549959ea9f343" "20241022070238.471":
-  entity minmax at 2( 57) + 0 on 13;
-  architecture rtl1 of minmax at 11( 273) + 0 on 14;
