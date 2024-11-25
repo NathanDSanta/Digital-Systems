@@ -109,7 +109,7 @@
             margin-top: 20px;
         }
         .button-container button {
-            background: #161b22; 
+            background: #14181f; 
             color: #ffffff;
             padding: 15px 30px; 
             margin: 10px; 
@@ -117,6 +117,38 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 1.2em; 
+        }
+
+        .window {
+            background: #161b22;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            position: relative;
+            text-align: center;
+        }
+
+        .window::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 20px solid #161b22;
+        }
+
+        .window h3 {
+            margin-top: 0;
+            color: #58a6ff;
+            border-bottom: 2px solid #58a6ff;
+            padding-bottom: 5px;
+            text-align: center;
         }
     </style>
 </head>
@@ -128,7 +160,7 @@
                 P3: ALU, Sistemes Digitals<br><strong>Demostració del funcionament de la pràctica a la placa</strong>
             </div>
             <div class="right">
-                <strong>Paul&Naty </strong> CodingStudio
+                <strong>Paul&Naty</strong> CodingStudio
                 <img src="GIF/logo.gif" alt="Logo">
             </div>
         </div>
@@ -139,12 +171,15 @@
             <img src="GIF/img2.png" alt="Esquema">
         </div>
 
-        <div class="button-container">
-            <button onclick="toggleSection('comparison')">=</button>
-            <button onclick="toggleSection('sum')">+</button>
-            <button onclick="toggleSection('rest')">-</button>
-            <button onclick="toggleSection('shift')">-></button>
-            <button onclick="toggleSection('error')">?</button>
+        <div class="window">
+            <h3>Tria una operació:</h3>
+            <div class="button-container">
+                <button onclick="toggleSection('comparison')">=</button>
+                <button onclick="toggleSection('sum')">+</button>
+                <button onclick="toggleSection('rest')">-</button>
+                <button onclick="toggleSection('shift')">-></button>
+                <button onclick="toggleSection('error')">?</button>
+            </div>
         </div>
         
         <section id="comparison">
@@ -184,7 +219,7 @@
     </main>
 
     <footer>
-        <p>&copy; Natan&Paul Coding Studio (｡◕‿‿◕｡) 2024</p>
+        <p>&copy; Paul&NatyCodingStudio (｡◕‿‿◕｡) 2024</p>
     </footer>
 
     <script>
