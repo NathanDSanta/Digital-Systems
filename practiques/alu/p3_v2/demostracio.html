@@ -12,6 +12,7 @@
             background-color: #0d1117;
             color: #c9d1d9;
         }
+
         header {
             position: fixed;
             top: 20px;
@@ -78,6 +79,7 @@
             max-width: 600px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             border-radius: 10px;
+            display: none; 
         }
         h2 {
             color: #58a6ff;
@@ -101,6 +103,21 @@
         .top-bar .left strong { 
             font-size: 1.6em; 
         }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button-container button {
+            background: #161b22; 
+            color: #ffffff;
+            padding: 15px 30px; 
+            margin: 10px; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em; 
+        }
     </style>
 </head>
 <body>
@@ -118,7 +135,15 @@
     </header>
 
     <main>
-        <section>
+        <div class="button-container">
+            <button onclick="toggleSection('comparison')">=</button>
+            <button onclick="toggleSection('sum')">+</button>
+            <button onclick="toggleSection('rest')">-</button>
+            <button onclick="toggleSection('shift')">-></button>
+            <button onclick="toggleSection('error')">?</button>
+        </div>
+        
+        <section id="comparison">
             <h2>Comparació de 2 operands:</h2>
             <p>En aquest cas la sortida de la operació es veurà en el display 7 segments de la placa. Les possibles sortides són 3:</p>
             <ul>
@@ -129,25 +154,25 @@
             <img src="GIF/mode1.gif" alt="Comparació de 2 operands">
         </section>
 
-        <section>
+        <section id="sum">
             <h2>Suma de 2 operands:</h2>
             <p>En aquest cas s'utilitzaran els LEDs de color vermell de la placa (10 leds) per mostrar la suma dels 2 operands d'entrada. Per tant serà una suma de nombres binaris i el resultat serà un binari.</p>
             <img src="GIF/mode2.gif" alt="Suma de 2 operands">
         </section>
 
-        <section>
+        <section id="rest">
             <h2>Resta de 2 operants:</h2>
             <p>En aquest cas s'utilitzaran els LEDs de color vermell de la placa (10 LEDs) per mostrar la resta dels 2 operands d'entrada. Per tant serà una resta de nombres binaris i el resultat serà un binari. En cas de que el resultat sigui negatiu al display 7 segments haurà d'aparèixer un “-”.</p>
             <img src="GIF/mode3.gif" alt="Resta de 2 operants">
         </section>
 
-        <section>
+        <section id="shift">
             <h2>Shift d'un operand “n” posicions:</h2>
             <p>En aquest cas el que es pretén es realitzar un desplaçament de l'Input0 “n” posicions. Aquest “n” el definirà l'Input1. Igual que ens els casos anteriors tant les entrades com les sortides seràn en format binari, per les sortides també s'utilitzaran els 10 LEDs vermells de la placa.</p>
             <img src="GIF/mode4.gif" alt="Shift d'un operand">
         </section>
 
-        <section>
+        <section id="error">
             <h2>Error</h2>
             <p>En cas de que el codi d'operació no sigui cap dels descrits anteriorment caldrà que el display 7 segments mostri per pantalla “Err”.</p>
             <img src="GIF/error.gif" alt="Error">
@@ -157,6 +182,19 @@
     <footer>
         <p>&copy; Natan&Paul Coding Studio (｡◕‿‿◕｡) 2024</p>
     </footer>
+
+    <script>
+        function toggleSection(id) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                if (section.id === id) {
+                    section.style.display = section.style.display === 'none' ? 'block' : 'none';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>
