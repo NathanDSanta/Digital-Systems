@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALU Operations</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.8;
+            margin: 40px;
+            background-color: #0d1117;
+            color: #c9d1d9;
+        }
+        header, footer {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            color: #58a6ff;
+            margin-bottom: 0;
+        }
+        footer p {
+            font-size: 0.9em;
+            color: #8b949e;
+        }
+        section {
+            background: #161b22;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+        h2 {
+            color: #58a6ff;
+            border-bottom: 2px solid #58a6ff;
+            padding-bottom: 10px;
+        }
+        p, ul {
+            margin: 20px 0;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Demostració del funcionament de la pràctica a la placa</h1>
+    </header>
+
+    <section>
+        <h2>Comparació de 2 operands:</h2>
+        <p>En aquest cas la sortida de la operació es veurà en el display 7 segments de la placa. Les possibles sortides són 3:</p>
+        <ul>
+            <li><strong>Input0 &lt; Input1:</strong> Sortida “rg”</li>
+            <li><strong>Input0 == Input1:</strong> Sortida “Eq”</li>
+            <li><strong>Input0 &gt; Input1:</strong> Sortida “Lg”</li>
+        </ul>
+        <img src="GIF/mode1.gif" alt="Comparació de 2 operands">
+    </section>
+
+    <section>
+        <h2>Suma de 2 operands:</h2>
+        <p>En aquest cas s'utilitzaran els LEDs de color vermell de la placa (10 leds) per mostrar la suma dels 2 operands d'entrada. Per tant serà una suma de nombres binaris i el resultat serà un binari.</p>
+        <img src="GIF/mode2.gif" alt="Suma de 2 operands">
+    </section>
+
+    <section>
+        <h2>Resta de 2 operants:</h2>
+        <p>En aquest cas s'utilitzaran els LEDs de color vermell de la placa (10 LEDs) per mostrar la resta dels 2 operands d'entrada. Per tant serà una resta de nombres binaris i el resultat serà un binari. En cas de que el resultat sigui negatiu al display 7 segments haurà d'aparèixer un “-”.</p>
+        <img src="GIF/mode3.gif" alt="Resta de 2 operants">
+    </section>
+
+    <section>
+        <h2>Shift d'un operand “n” posicions:</h2>
+        <p>En aquest cas el que es pretén es realitzar un desplaçament de l'Input0 “n” posicions. Aquest “n” el definirà l'Input1. Igual que ens els casos anteriors tant les entrades com les sortides seràn en format binari, per les sortides també s'utilitzaran els 10 LEDs vermells de la placa.</p>
+        <img src="GIF/mode4.gif" alt="Shift d'un operand">
+    </section>
+
+    <section>
+        <h2>Error</h2>
+        <p>En cas de que el codi d'operació no sigui cap dels descrits anteriorment caldrà que el display 7 segments mostri per pantalla “Err”.</p>
+        <img src="GIF/error.gif" alt="Error">
+    </section>
+
+    <footer>
+        <p>&copy; Natan&Paul Coding Studio (｡◕‿‿◕｡) 2024</p>
+    </footer>
+
+</body>
+</html>
