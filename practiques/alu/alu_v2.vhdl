@@ -19,25 +19,26 @@ architecture behaviour of alu is
     signal temp : unsigned(9 downto 0);
 begin
     process(inp_a, inp_b, sel)
-    begin
-        A <= resize(unsigned(inp_a), 10);
+    begin 
+        -- Convertim els vectors en unsigned i els canviem la mida a 10
+        A <= resize(unsigned(inp_a), 10); 
         B <= resize(unsigned(inp_b), 10);
         case sel is
             when "0001" => -- Comparacio
                 resultat <= "0000000000";
                 display4 <= "0000000";
-                if (A < B) then
+                if (A < B) then -- A mes petit que B, per tant per pantalla mostrem "rg"
                     display1 <= "0000000";
-                    display2 <= STD_LOGIC_VECTOR(to_unsigned(80, 7));
-                    display3 <= STD_LOGIC_VECTOR(to_unsigned(111, 7));
-                elsif (A = B) then
-                    display1 <= "0000000";
-                    display2 <= STD_LOGIC_VECTOR(to_unsigned(121, 7));
-                    display3 <= STD_LOGIC_VECTOR(to_unsigned(103, 7));
-                else
-                    display1 <= "0000000";
-                    display2 <= STD_LOGIC_VECTOR(to_unsigned(56, 7));
-                    display3 <= STD_LOGIC_VECTOR(to_unsigned(111, 7));
+                    display2 <= STD_LOGIC_VECTOR(to_unsigned(80, 7)); -- r
+                    display3 <= STD_LOGIC_VECTOR(to_unsigned(111, 7)); -- g
+                elsif (A = B) then  -- A igual que B, per tant mostrem "Eq"
+                    display1 <= "0000000"; 
+                    display2 <= STD_LOGIC_VECTOR(to_unsigned(121, 7)); -- E
+                    display3 <= STD_LOGIC_VECTOR(to_unsigned(103, 7)); -- q
+                else -- A mes gran que B, per tant mostrem "Lg"
+                    display1 <= "0000000";  
+                    display2 <= STD_LOGIC_VECTOR(to_unsigned(56, 7)); -- L
+                    display3 <= STD_LOGIC_VECTOR(to_unsigned(111, 7)); -- g
                 end if;
             when "0010" => -- Suma
                 resultat <= STD_LOGIC_VECTOR(A + B);
@@ -57,10 +58,10 @@ begin
                 display1 <= "0000000";
                 display2 <= "0000000";
                 display3 <= "0000000";
-            when others =>
-                display1 <= STD_LOGIC_VECTOR(to_unsigned(121, 7));
-                display2 <= STD_LOGIC_VECTOR(to_unsigned(80, 7));
-                display3 <= STD_LOGIC_VECTOR(to_unsigned(80, 7));
+            when others => -- Si no hia una opcio valida selectionada mostrem "Err"
+                display1 <= STD_LOGIC_VECTOR(to_unsigned(121, 7)); -- E
+                display2 <= STD_LOGIC_VECTOR(to_unsigned(80, 7)); -- r
+                display3 <= STD_LOGIC_VECTOR(to_unsigned(80, 7)); -- r
                 resultat <= "0000000000";
         end case;
         
