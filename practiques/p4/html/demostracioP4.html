@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALU Operations</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.8;
+            margin: 40px;
+            background-color: #e5eaff;
+            color: #09264b;
+        }
+
+        header {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f5f7ff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            border-radius: 15px;
+            width: calc(100% - 80px);
+            max-width: 1200px;
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; 
+            width: 100%;
+            font-size: 0.8em;
+        }
+        .top-bar .left {
+            text-align: left;
+        }
+        .top-bar .right {
+            text-align: right;
+            display: flex; 
+            align-items: center; 
+        }
+        .right img {
+            margin-left: 10px; 
+        }
+
+        header img {
+            height: 40px;
+            margin-left: auto;
+        }
+        header h1 {
+            color: #001689;
+            margin: 0;
+            font-size: 1.5em;
+        }
+        .subtitle {
+            font-size: 0.8em;
+            color: #4e41bb;
+            text-align: left;
+            margin: 0;
+        }
+        footer {
+            text-align: center;
+            margin: 60px 0 20px;
+        }
+        footer p {
+            font-size: 0.9em;
+            color: #4e41bb;
+        }
+        main {
+            padding-top: 140px;
+        }
+        section {
+            background: #f5f7ff;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            display: none; 
+        }
+        h2 {
+            color: #909ee6;
+            border-bottom: 2px solid #909ee6;
+            padding-bottom: 5px;
+        }
+        p, ul {
+            margin: 20px 0;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 900px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .top-bar .left strong { 
+            font-size: 1.6em; 
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button-container button {
+            background: #cad2ff; 
+            color: #001689;
+            padding: 15px 30px; 
+            margin: 10px; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em; 
+        }
+
+        .window {
+            background: #f5f7ff;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            position: relative;
+            text-align: center;
+        }
+
+        .window::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 20px solid #f5f7ff;
+        }
+
+        .window h3 {
+            margin-top: 0;
+            color: #909ee6;
+            border-bottom: 2px solid #909ee6;
+            padding-bottom: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="top-bar">
+            <div class="left">
+                P4: Pany electrònic, Sistemes Digitals<br><strong>Demostració del funcionament de la pràctica a la placa</strong>
+            </div>
+            <div class="right">
+                <strong>Paul&Naty</strong> CodingStudio
+                <img src="GIF/logo2.gif" alt="Logo">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div>
+            <img src="GIF/img2.png" alt="Esquema">
+        </div>
+
+        <div class="window">
+            <h3>Tria una operació:</h3>
+            <div class="button-container">
+                <button onclick="toggleSection('comparison')">2</button>
+                <button onclick="toggleSection('sum')">3</button>
+                <button onclick="toggleSection('rest')">5</button>
+                <button onclick="toggleSection('shift')">1</button>
+                <button onclick="toggleSection('error')">?</button>
+            </div>
+        </div>
+        
+        <section id="comparison">
+            <h2>Comparació de 2 operands:</h2>
+            <p>En aquest cas la sortida de la operació es veurà en el display 7 segments de la placa. Les possibles sortides són 3:</p>
+            <ul>
+                <li><strong>Input0 &lt; Input1:</strong> Sortida “rg”</li>
+                <li><strong>Input0 == Input1:</strong> Sortida “Eq”</li>
+                <li><strong>Input0 &gt; Input1:</strong> Sortida “Lg”</li>
+            </ul>
+            <img src="GIF/mode1.gif" alt="Comparació de 2 operands">
+        </section>
+
+        <section id="sum">
+            <h2>Suma de 2 operands:</h2>
+            <p>En aquest cas s'utilitzaran els LEDs de color vermell de la placa (10 leds) per mostrar la suma dels 2 operands d'entrada. Per tant serà una suma de nombres binaris i el resultat serà un binari.</p>
+            <img src="GIF/mode2.gif" alt="Suma de 2 operands">
+        </section>
+
+        <section id="rest">
+            <h2>Resta de 2 operants:</h2>
+            <p>En aquest cas s'utilitzaran els LEDs de color vermell de la placa (10 LEDs) per mostrar la resta dels 2 operands d'entrada. Per tant serà una resta de nombres binaris i el resultat serà un binari. En cas de que el resultat sigui negatiu al display 7 segments haurà d'aparèixer un “-”.</p>
+            <img src="GIF/mode3.gif" alt="Resta de 2 operants">
+        </section>
+
+        <section id="shift">
+            <h2>Shift d'un operand “n” posicions:</h2>
+            <p>En aquest cas el que es pretén es realitzar un desplaçament de l'Input0 “n” posicions. Aquest “n” el definirà l'Input1. Igual que ens els casos anteriors tant les entrades com les sortides seràn en format binari, per les sortides també s'utilitzaran els 10 LEDs vermells de la placa.</p>
+            <img src="GIF/mode4.gif" alt="Shift d'un operand">
+        </section>
+
+        <section id="error">
+            <h2>Error</h2>
+            <p>En cas de que el codi d'operació no sigui cap dels descrits anteriorment caldrà que el display 7 segments mostri per pantalla “Err”.</p>
+            <img src="GIF/error.gif" alt="Error">
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Paul&NatyCodingStudio (｡◕‿‿◕｡) 2024</p>
+    </footer>
+
+    <script>
+        function toggleSection(id) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                if (section.id === id) {
+                    section.style.display = section.style.display === 'none' ? 'block' : 'none';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
