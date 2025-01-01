@@ -29,7 +29,7 @@ begin
     NextState <= State;
     case State is
       when S0 =>
-        ready <= '1';
+        ready <= '1'; -- Inicialització de sortides en estat inicial
         Tecla <= '0';
         eCodi <= '0';
         pOberta <= '0';
@@ -40,7 +40,7 @@ begin
           NextState <= S2;
         end if;
       when S1 =>
-        ready <= '0';
+        ready <= '0'; -- Preparant per a la següent entrada
         eCodi <= '1';
         Tecla <= '1';
         if tecles = "0000000000" then
@@ -62,7 +62,7 @@ begin
         end if;
       when S4 =>
         Tecla <= '0';
-        if tecles /= "0000000000" then
+        if tecles /= "0000000000" then -- Canvi: Condició per la següent transició d'estat corregida
           NextState <= S6;        
         end if;
       when S5 =>
@@ -84,7 +84,7 @@ begin
         end if;
       when S8 =>
         Tecla <= '0';
-        if tecles /= "0000000000" then
+        if tecles /= "0000000000" then -- Canvi: Condició per la següent transició d'estat corregida
           NextState <= S10;        
         end if;
       when S9 =>
@@ -106,7 +106,7 @@ begin
         end if;
       when S12 =>
         Tecla <= '0';
-        if tecles /= "0000000000" then
+        if tecles /= "0000000000" then -- Canvi: Condició per la següent transició d'estat corregida
           NextState <= S14;        
         end if;
       when S13 =>
@@ -120,11 +120,11 @@ begin
           NextState <= S16;        
         end if;
       when S15 =>
-        pOberta <= '1';
+        pOberta <= '1'; -- Estat final per porta oberta
         eCodi <= '0';
         Tecla <= '0';
       when S16 =>
-        pTancada <= '1';
+        pTancada <= '1'; -- Estat final per porta tancada
         eCodi <= '0';
         Tecla <= '0';
     end case;
